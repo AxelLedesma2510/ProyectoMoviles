@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/defaul"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ambiente">
+
+    <TextView
+        android:id="@+id/nomAmbiente"
+        android:layout_width="333dp"
+        android:layout_height="53dp"
+        android:text="@string/nombre_del_ambiente"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/cAmbiente"
+        android:layout_width="199dp"
+        android:layout_height="63dp"
+        android:backgroundTint="@color/white"
+        android:onClick="cAmbiente"
+        android:text="@string/cambiar_ambiente"
+        android:textColor="#0277BD"
+        app:layout_constraintBottom_toTopOf="@+id/IGeneral"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/IGeneral"
+        android:layout_width="264dp"
+        android:layout_height="82dp"
+        android:layout_marginBottom="52dp"
+        android:onClick="IGeneral"
+        android:text="@string/inventario_general"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/IPComputadoras"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/IPComputadoras"
+        android:layout_width="270dp"
+        android:layout_height="83dp"
+        android:layout_marginBottom="144dp"
+        android:onClick="IPComputadoras"
+        android:text="@string/inventario_por_computadoras"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck,TextContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ProyectoMoviles" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#1FB4F8</item>
+        <item name="colorPrimary">#022B3A</item>
         <item name="colorPrimaryVariant">#05AF9F</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

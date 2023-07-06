@@ -14,7 +14,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
-        android:fontFamily="@font/lato"
+        android:fontFamily="sans-serif"
         android:text="@string/lista_de_ambientes"
         android:textAlignment="center"
         android:textColor="#022B3A"
@@ -22,7 +22,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/Agregar"
@@ -30,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/lato"
+        android:fontFamily="sans-serif"
         android:onClick="Agregar"
         android:text="@string/agregar_ambiente"
         android:textColor="#022B3A"

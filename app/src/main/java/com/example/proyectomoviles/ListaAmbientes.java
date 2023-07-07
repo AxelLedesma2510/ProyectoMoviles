@@ -19,6 +19,5 @@ public class ListaAmbientes extends AppCompatActivity {
     {
         Intent siguiente = new Intent(this,RegistrarAmbiente.class);
         startActivity(siguiente);
-
     }
 }

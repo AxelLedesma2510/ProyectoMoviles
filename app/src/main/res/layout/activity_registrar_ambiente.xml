@@ -39,6 +39,7 @@
         android:layout_width="349dp"
         android:layout_height="78dp"
         android:layout_marginTop="60dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="text"
         android:textAlignment="center"
@@ -47,14 +48,13 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:ignore="LabelFor,SpeakableTextPresentCheck"
-        android:autofillHints="" />
+        tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnAgregaAmb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="161dp"
+        android:layout_marginBottom="64dp"
         android:onClick="GuardarAmbiente"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"

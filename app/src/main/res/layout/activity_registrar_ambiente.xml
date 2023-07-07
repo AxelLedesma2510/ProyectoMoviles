@@ -35,7 +35,7 @@
         tools:ignore="HardcodedText" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/eTNomAmbiente"
         android:layout_width="349dp"
         android:layout_height="78dp"
         android:layout_marginTop="60dp"

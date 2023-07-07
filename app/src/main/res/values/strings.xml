@@ -13,4 +13,6 @@
     <string name="calculadora">CALCULADORA</string>
     <string name="registre_ambiente">Registre Ambiente</string>
     <string name="guardar">Guardar</string>
+    <string name="textview">TextView</string>
+    <string name="conectar">Conectar</string>
 </resources>

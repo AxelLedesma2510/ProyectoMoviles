@@ -60,7 +60,7 @@
     function DeleteComputadora($IDComputadora){
         global $mysql;
 
-        $query = "DELETE FROM Computadora WHERE IDComputadora = $IDComputadora";
+        $query = "UPDATE Computadora SET Estado = 0 WHERE IDComputadora = $IDComputadora";
         $result = $mysql->query($query);
 
         if( $mysql->affected_rows > 0){

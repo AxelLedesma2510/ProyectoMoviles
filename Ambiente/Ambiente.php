@@ -18,26 +18,11 @@
         }
     }
     
-    function SelectAmbienteXColegio($IDColegio){
+    
+    function InsertAmbiente($Descripcion){
         global $mysql;
 
-        $query = "SELECT * FROM Ambiente WHERE IDColegio = $IDColegio";
-        $result = $mysql->query($query);
-
-        if ($result->num_rows > 0) {
-            $array = array();
-            while ($row = $result->fetch_assoc()) {
-                $array[] = $row;
-            }
-            return json_encode($array);
-        } else {
-            return "No hay Ambientes en el colegio: $IDColegio";
-        }
-    }
-    function InsertAmbiente($IDColegio, $Descripcion){
-        global $mysql;
-
-        $query = "INSERT INTO Ambiente (IDColegio, Descripcion) VALUES ($IDColegio,'$Descripcion')";
+        $query = "INSERT INTO Ambiente (Descripcion) VALUES ('$Descripcion')";
         $result = $mysql->query($query);
 
         if( $mysql->affected_rows > 0){
@@ -46,10 +31,10 @@
             echo "Hubo un fallo al ingresar los valores";
         }
     }
-    function UpdateAmbiente($IDAmbiente, $IDColegio, $Descripcion){
+    function UpdateAmbiente($IDAmbiente, $Descripcion){
         global $mysql;
 
-        $query = "UPDATE Ambiente SET IDColegio = $IDColegio, Descripcion = '$Descripcion' WHERE IDAmbiente = $IDAmbiente";
+        $query = "UPDATE Ambiente SET Descripcion = '$Descripcion' WHERE IDAmbiente = $IDAmbiente";
         $result = $mysql->query($query);
         
         if( $mysql->affected_rows > 0){

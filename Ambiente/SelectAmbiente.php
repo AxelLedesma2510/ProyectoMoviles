@@ -7,11 +7,4 @@
         echo $Ambientes;
     }
     
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-        $IDAmbiente = $_POST['IDAmbiente'];
-        
-        $select = SelectAmbienteXColegio($IDAmbiente);
-        echo $select;
-    }
 ?>

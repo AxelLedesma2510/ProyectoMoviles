@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 06-07-2023 a las 03:57:40
+-- Servidor: localhost:3306
+-- Tiempo de generación: 08-07-2023 a las 06:38:01
 -- Versión del servidor: 10.5.20-MariaDB
 -- Versión de PHP: 7.3.33
 
@@ -40,7 +40,7 @@ CREATE TABLE `Accesorio` (
 --
 
 INSERT INTO `Accesorio` (`IDAccesorio`, `IDComputadora`, `Tipo`, `Descripcion`, `Estado`) VALUES
-(1, 1, '1', 'Mouse Fino', 1),
+(1, 1, '1', 'Mouse Fino', 0),
 (2, 1, '2', 'Teclado Fino', 1),
 (3, 1, '3', 'Audifonos Finos', 0),
 (4, 2, '1', 'Mouse alámbrico Radioshack, conexión usb, 1200 dpi, 3 botones, negro', 1),
@@ -107,7 +107,6 @@ INSERT INTO `Accesorio` (`IDAccesorio`, `IDComputadora`, `Tipo`, `Descripcion`, 
 
 CREATE TABLE `Ambiente` (
   `IDAmbiente` bigint(20) NOT NULL,
-  `IDColegio` bigint(20) NOT NULL,
   `Descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -115,32 +114,14 @@ CREATE TABLE `Ambiente` (
 -- Volcado de datos para la tabla `Ambiente`
 --
 
-INSERT INTO `Ambiente` (`IDAmbiente`, `IDColegio`, `Descripcion`) VALUES
-(1, 1, 'SALA A COMPUTO PISO - 5'),
-(2, 1, 'SALA B COMPUTO PISO - 5	'),
-(3, 1, 'SALA C COMPUTO PISO - 7'),
-(4, 1, 'SALA DE PROFESORES'),
-(5, 2, 'SALA DE COMPUTO');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `Colegio`
---
-
-CREATE TABLE `Colegio` (
-  `IDColegio` bigint(20) NOT NULL,
-  `Nombre` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `Colegio`
---
-
-INSERT INTO `Colegio` (`IDColegio`, `Nombre`) VALUES
-(1, 'Prueba 1'),
-(2, 'Prueba 2'),
-(3, 'Prueba 3');
+INSERT INTO `Ambiente` (`IDAmbiente`, `Descripcion`) VALUES
+(1, 'SALA A COMPUTO PISO - 5'),
+(2, 'SALA B COMPUTO PISO - 5	'),
+(3, 'SALA C COMPUTO PISO - 7'),
+(4, 'SALA DE PROFESORES'),
+(5, 'SALA DE COMPUTO'),
+(6, 'pruebassss'),
+(7, 'hhh');
 
 -- --------------------------------------------------------
 
@@ -162,7 +143,7 @@ CREATE TABLE `Computadora` (
 
 INSERT INTO `Computadora` (`IDComputadora`, `IDAmbiente`, `Modelo`, `Estado`, `FechaObtencion`) VALUES
 (1, 1, 'Prueba', 1, '2023-06-20'),
-(2, 1, 'Prueba2', 2, '2023-06-15'),
+(2, 1, 'Prueba2', 0, '2023-06-15'),
 (3, 1, 'Prueba3', 1, '2023-05-10'),
 (5, 1, 'Lenovo ThinkCentre M70q 3ra Gen Tiny', 1, '2023-06-01'),
 (6, 1, 'Lenovo ThinkCentre M70q 3ra Gen Tiny', 1, '2023-06-01'),
@@ -182,26 +163,6 @@ INSERT INTO `Computadora` (`IDComputadora`, `IDAmbiente`, `Modelo`, `Estado`, `F
 (20, 4, 'PC de escritorio HP EliteDesk 800 G1 USFF - Intel Core i5-4570S 2.9GHz 8GB 500GB HDD DVDRW', 1, '2023-06-01'),
 (21, 4, 'Lenovo ThinkCentre M70q 3ra Gen Tiny', 1, '2023-06-01');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `Usuario`
---
-
-CREATE TABLE `Usuario` (
-  `IDUsuario` bigint(20) NOT NULL,
-  `IDColegio` bigint(20) NOT NULL,
-  `User` varchar(100) NOT NULL,
-  `Password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `Usuario`
---
-
-INSERT INTO `Usuario` (`IDUsuario`, `IDColegio`, `User`, `Password`) VALUES
-(1, 1, 'Prueba', '1234');
-
 --
 -- Índices para tablas volcadas
 --
@@ -210,20 +171,14 @@ INSERT INTO `Usuario` (`IDUsuario`, `IDColegio`, `User`, `Password`) VALUES
 -- Indices de la tabla `Accesorio`
 --
 ALTER TABLE `Accesorio`
-  ADD PRIMARY KEY (`IDAccesorio`);
+  ADD PRIMARY KEY (`IDAccesorio`),
+  ADD KEY `IDComputadora` (`IDComputadora`);
 
 --
 -- Indices de la tabla `Ambiente`
 --
 ALTER TABLE `Ambiente`
-  ADD PRIMARY KEY (`IDAmbiente`),
-  ADD KEY `IDColegio` (`IDColegio`);
-
---
--- Indices de la tabla `Colegio`
---
-ALTER TABLE `Colegio`
-  ADD PRIMARY KEY (`IDColegio`);
+  ADD PRIMARY KEY (`IDAmbiente`);
 
 --
 -- Indices de la tabla `Computadora`
@@ -231,13 +186,6 @@ ALTER TABLE `Colegio`
 ALTER TABLE `Computadora`
   ADD PRIMARY KEY (`IDComputadora`),
   ADD KEY `IDAmbiente` (`IDAmbiente`);
-
---
--- Indices de la tabla `Usuario`
---
-ALTER TABLE `Usuario`
-  ADD PRIMARY KEY (`IDUsuario`),
-  ADD KEY `IDColegio` (`IDColegio`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -253,25 +201,13 @@ ALTER TABLE `Accesorio`
 -- AUTO_INCREMENT de la tabla `Ambiente`
 --
 ALTER TABLE `Ambiente`
-  MODIFY `IDAmbiente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `Colegio`
---
-ALTER TABLE `Colegio`
-  MODIFY `IDColegio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IDAmbiente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `Computadora`
 --
 ALTER TABLE `Computadora`
   MODIFY `IDComputadora` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT de la tabla `Usuario`
---
-ALTER TABLE `Usuario`
-  MODIFY `IDUsuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -284,22 +220,10 @@ ALTER TABLE `Accesorio`
   ADD CONSTRAINT `Accesorio_ibfk_1` FOREIGN KEY (`IDComputadora`) REFERENCES `Computadora` (`IDComputadora`);
 
 --
--- Filtros para la tabla `Ambiente`
---
-ALTER TABLE `Ambiente`
-  ADD CONSTRAINT `Ambiente_ibfk_1` FOREIGN KEY (`IDColegio`) REFERENCES `Colegio` (`IDColegio`);
-
---
 -- Filtros para la tabla `Computadora`
 --
 ALTER TABLE `Computadora`
   ADD CONSTRAINT `Computadora_ibfk_1` FOREIGN KEY (`IDAmbiente`) REFERENCES `Ambiente` (`IDAmbiente`);
-
---
--- Filtros para la tabla `Usuario`
---
-ALTER TABLE `Usuario`
-  ADD CONSTRAINT `Usuario_ibfk_1` FOREIGN KEY (`IDColegio`) REFERENCES `Colegio` (`IDColegio`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

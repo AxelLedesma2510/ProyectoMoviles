@@ -3,11 +3,10 @@
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     	
-    	$IDComputadora = $_POST['IDComputadora'];
+    	$IDAmbiente = $_POST['IDAmbiente'];
 
-        $Accesorios = SelectAccesorio($IDComputadora);
+        $Accesorios = SelectAccesorio($IDAmbiente);
         echo $Accesorios;
     }
-    
     
 ?>

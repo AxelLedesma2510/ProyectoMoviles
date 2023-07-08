@@ -1,11 +1,16 @@
 <?php
     require_once('database.php');
 
-    function SelectAccesorio($IDComputadora){
+    function SelectAccesorio($IDAmbiente){
         global $mysql;
 
-        $query = "SELECT * FROM Accesorio WHERE IDComputadora = $IDComputadora";
+        $query = "SELECT a.* from Accesorio a INNER JOIN Ambiente b INNER JOIN Computadora c ON a.IDComputadora=c.IDComputadora  WHERE b.IDAmbiente = $IDAmbiente";
         $result = $mysql->query($query);
+        
+        if (!$result) {
+        
+        return "Error en la consulta SQL: " . mysqli_error($mysql);
+        }
         
         if ($result->num_rows > 0) {
             $array = array();
@@ -14,7 +19,7 @@
             }
             return json_encode($array);
         } else {
-            return "Problems";
+            return "Problemas";
         }
     }
     
@@ -27,7 +32,7 @@
         if( $mysql->affected_rows > 0){
             echo "Se han ingresado los valores";
         }else{
-            echo "Hubo un fallo al ingresar los valores";
+            echo "Hubo un fallo al ingresar los valores" . mysqli_error($mysql);
         }
     }
     function UpdateAccesorio($IDAccesorio, $Estado){
@@ -39,19 +44,19 @@
         if( $mysql->affected_rows > 0){
             echo "Se han actualizado los valores";
         }else{
-            echo "Hubo un fallo al actualizar los valores";
+            echo "Hubo un fallo al actualizar los valores" . mysqli_error($mysql);
         }
     }
     function DeleteAccesorio($IDAccesorio){
         global $mysql;
 
-        $query = "DELETE FROM Accesorio WHERE IDAccesorio = $IDAccesorio";
+        $query = "UPDATE Accesorio SET Estado = 0 WHERE IDAccesorio = $IDAccesorio";
         $result = $mysql->query($query);
 
         if( $mysql->affected_rows > 0){
             echo "Se ha eliminado el Accesorio";
         }else{
-            echo "Hubo un fallo al eliminar la Accesorio";
-        };
+        echo "Hubo un fallo al eliminar la Accesorio" . mysqli_error($mysql);
+        }
     }
 ?>

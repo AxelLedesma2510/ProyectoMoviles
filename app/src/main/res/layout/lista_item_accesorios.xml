@@ -3,23 +3,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="80dp"
     android:layout_marginBottom="40dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="260dp"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtDescA"
-            android:layout_width="288dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtIdA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/txtTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/txtEst"
             android:layout_width="288dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
@@ -29,17 +43,17 @@
     <ImageButton
         android:id="@+id/btnConf"
         android:layout_width="48dp"
-        android:layout_height="match_parent"
+        android:layout_height="80dp"
         android:layout_weight="1"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/llave_inglesa" />
+        app:srcCompat="@drawable/editar" />
 
     <ImageButton
         android:id="@+id/btnDelet"
         android:layout_width="48dp"
-        android:layout_height="match_parent"
+        android:layout_height="80dp"
         android:layout_weight="1"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/inventario" />
+        app:srcCompat="@drawable/borrar" />
 
 </LinearLayout>

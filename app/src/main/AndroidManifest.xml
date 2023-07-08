@@ -9,14 +9,13 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Proyecto Moviles"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoMoviles"
         tools:targetApi="31">
         <activity
-            android:name=".Splash_screen"
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:exported="true" />
+            android:name=".SplashActivity"
+            android:exported="false" />
         <activity
             android:name=".RegistrarAmbiente"
             android:exported="false" />
@@ -40,7 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

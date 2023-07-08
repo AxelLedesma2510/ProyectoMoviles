@@ -38,7 +38,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvComp"
-        android:layout_width="409dp"
-        android:layout_height="373dp" />
+        android:layout_width="329dp"
+        android:layout_height="321dp" />
 
 </LinearLayout>

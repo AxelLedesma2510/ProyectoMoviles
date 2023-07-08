@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class Ambiente extends AppCompatActivity {
 
     private TextView miTextView;
+    private String idAmbiente;
 
 
     @Override
@@ -20,7 +21,7 @@ public class Ambiente extends AppCompatActivity {
         miTextView = findViewById(R.id.nomAmbiente);
 
         String descripcion = getIntent().getStringExtra("descripcion");
-        String idAmbiente = getIntent().getStringExtra("idAmbiente");
+        idAmbiente = getIntent().getStringExtra("idAmbiente");
 
         String texto = descripcion;
         miTextView.setText(texto);
@@ -31,13 +32,15 @@ public class Ambiente extends AppCompatActivity {
     public void cAmbiente(View view)
     {
         Intent siguiente = new Intent(this,ListaAmbientes.class);
+        siguiente.putExtra("idAmbiente", idAmbiente);
         startActivity(siguiente);
     }
 
     //Mètodo boton IGeneral
     public void IGeneral(View view)
     {
-        Intent siguiente = new Intent(this,InventarioGeneral.class);
+        Intent siguiente = new Intent(this, InventarioGeneral.class);
+        siguiente.putExtra("idAmbiente", idAmbiente);
         startActivity(siguiente);
     }
 
@@ -45,6 +48,7 @@ public class Ambiente extends AppCompatActivity {
     public void IPComputadoras(View view)
     {
         Intent siguiente = new Intent(this,InventariopComputadoras.class);
+        siguiente.putExtra("idAmbiente", idAmbiente);
         startActivity(siguiente);
     }
 }

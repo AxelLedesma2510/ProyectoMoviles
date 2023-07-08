@@ -37,6 +37,7 @@ public class RegistrarAmbiente extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ejecutarServicio("https://utpjoser.000webhostapp.com/ProyectoMoviles/InsertAmbiente.php");
+                eTNomAmbiente.setText("");
                 DataManager.getInstance().notifyDataChanged();
                 Retornar();
             }

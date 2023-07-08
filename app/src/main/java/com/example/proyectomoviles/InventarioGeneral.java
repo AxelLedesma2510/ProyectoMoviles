@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,6 +33,8 @@ import java.util.Map;
 
 public class InventarioGeneral extends AppCompatActivity implements DataChangeListener{
 
+    private TextView miTextView;
+    private String idAmbiente;
     @Override
     public void onDataChanged() {
         // Actualiza la interfaz de usuario de la actividad
@@ -43,6 +46,14 @@ public class InventarioGeneral extends AppCompatActivity implements DataChangeLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventario_general);
+
+        miTextView = findViewById(R.id.textView2);
+
+        String descripcion = getIntent().getStringExtra("descripcion");
+        idAmbiente = getIntent().getStringExtra("idAmbiente");
+
+        String texto = idAmbiente;
+
 
         recView = (RecyclerView) findViewById(R.id.rwInG);
         recView.setHasFixedSize(true);
@@ -89,7 +100,7 @@ public class InventarioGeneral extends AppCompatActivity implements DataChangeLi
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("IDAmbiente", String.valueOf(1));
+                parametros.put("IDAmbiente", idAmbiente);
                 return parametros;
             }
         };

@@ -1,7 +1,6 @@
 package com.example.proyectomoviles.recyclerGen;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.proyectomoviles.Ambiente;
 import com.example.proyectomoviles.R;
-import com.example.proyectomoviles.recyclerAmb.DAmbientes;
 
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class AdaptadorGeneral extends RecyclerView.Adapter<AdaptadorGeneral.View
 
             txtDescA = itemView.findViewById(R.id.txtDescA);
             txtIdA = itemView.findViewById(R.id.txtIdA);
-            txtTipo = itemView.findViewById(R.id.txtTipo);
+            txtTipo = itemView.findViewById(R.id.txtMod);
             txtEst = itemView.findViewById(R.id.txtEst);
             boton = itemView.findViewById(R.id.btnDelet);
 

@@ -36,9 +36,11 @@ public class RegistrarAmbiente extends AppCompatActivity {
         btnAgregaAmb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ejecutarServicio("https://webscapy.000webhostapp.com/InsertAmbiente.php");
-
+                ejecutarServicio("https://utpjoser.000webhostapp.com/ProyectoMoviles/InsertAmbiente.php");
+                DataManager.getInstance().notifyDataChanged();
+                Retornar();
             }
+
         });
     }
 
@@ -66,5 +68,11 @@ public class RegistrarAmbiente extends AppCompatActivity {
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    public void Retornar()
+    {
+        Intent siguiente = new Intent(this,ListaAmbientes.class);
+        startActivity(siguiente);
     }
 }

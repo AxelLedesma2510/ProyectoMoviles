@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo2"
-    tools:context=".RegistrarAmbiente">
+    tools:context=".RegistrarComputadora">
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
-        android:text="@string/registre_ambiente"
+        android:text="Registre Computadora"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="34sp"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:text="Nombre del Ambiente"
+        android:text="Modelo"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         tools:ignore="HardcodedText" />
 
     <EditText
-        android:id="@+id/eTNomC"
+        android:id="@+id/eTNomComp"
         android:layout_width="349dp"
         android:layout_height="78dp"
         android:layout_marginTop="60dp"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
-        android:onClick="GuardarAmbiente"
+        android:onClick="GuardarComp"
         android:text="@string/guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

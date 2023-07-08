@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +18,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.proyectomoviles.recyclerGen.AdaptadorGeneral;
-import com.example.proyectomoviles.recyclerGen.DGeneral;
 import com.example.proyectomoviles.recyclerPComp.AdaptadorPComputadoras;
 import com.example.proyectomoviles.recyclerPComp.DPComp;
 
@@ -38,6 +37,8 @@ public class InventariopComputadoras extends AppCompatActivity implements DataCh
 
     private TextView miTextView;
     private String idAmbiente;
+
+
     @Override
     public void onDataChanged() {
         // Actualiza la interfaz de usuario de la actividad
@@ -48,22 +49,18 @@ public class InventariopComputadoras extends AppCompatActivity implements DataCh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inventario_general);
+        setContentView(R.layout.activity_inventariop_computadoras);
 
-        miTextView = findViewById(R.id.textView2);
-
-        String descripcion = getIntent().getStringExtra("descripcion");
         idAmbiente = getIntent().getStringExtra("idAmbiente");
 
-        String texto = idAmbiente;
-
-
-        recView = (RecyclerView) findViewById(R.id.rwInG);
+        recView = (RecyclerView) findViewById(R.id.rvComp);
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(this));
 
         LComp = new ArrayList<>();
         obtenerDatosAmbientes();
+
+
     }
     private void obtenerDatosAmbientes() {
         String url = "https://utpjoser.000webhostapp.com/ProyectoMoviles/SelectComputadora.php";
@@ -119,9 +116,10 @@ public class InventariopComputadoras extends AppCompatActivity implements DataCh
         requestQueue.add(request);
     }
 
-    public void Agregar(View view)
+    public void AgregaCom(View view)
     {
-        Intent siguiente = new Intent(this,MainActivity.class);
+        Intent siguiente = new Intent(this,RegistrarComputadora.class);
+        siguiente.putExtra("idAmbiente", idAmbiente);
         startActivity(siguiente);
     }
 }

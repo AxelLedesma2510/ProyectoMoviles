@@ -1,13 +1,13 @@
 package com.example.proyectomoviles;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -17,27 +17,36 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegistrarAmbiente extends AppCompatActivity {
+public class RegistrarComputadora extends AppCompatActivity {
 
-    EditText eTNomAmbiente;
-    Button btnAgregaAmb;
+    EditText eTNomCom;
+    Button btnAgregaCo;
+
+    private String idAmbiente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrar_ambiente);
+        setContentView(R.layout.activity_registrar_computadora);
 
-        eTNomAmbiente=(EditText)findViewById(R.id.eTNomC);
-        btnAgregaAmb = (Button) findViewById(R.id.btnAgregaComp);
+        eTNomCom=(EditText)findViewById(R.id.eTNomComp);
+        btnAgregaCo = (Button) findViewById(R.id.btnAgregaComp);
 
-        btnAgregaAmb.setOnClickListener(new View.OnClickListener() {
+        idAmbiente = getIntent().getStringExtra("idAmbiente");
+
+
+
+        btnAgregaCo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ejecutarServicio("https://webscapy.000webhostapp.com/InsertAmbiente.php");
-                eTNomAmbiente.setText("");
+                ejecutarServicio("https://utpjoser.000webhostapp.com/ProyectoMoviles/InsertComputadora.php");
+                eTNomCom.setText("");
                 DataManager.getInstance().notifyDataChanged();
                 Retornar();
             }
@@ -47,6 +56,10 @@ public class RegistrarAmbiente extends AppCompatActivity {
 
     private void ejecutarServicio(String URL)
     {
+        Date fechaActual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaMySQL = formato.format(fechaActual);
+
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -61,7 +74,10 @@ public class RegistrarAmbiente extends AppCompatActivity {
             @Override
             protected Map<String, String>getParams() throws AuthFailureError{
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("Descripcion",eTNomAmbiente.getText().toString());
+                parametros.put("IDAmbiente",idAmbiente);
+                parametros.put("Estado","1");
+                parametros.put("Modelo",eTNomCom.getText().toString());
+                parametros.put("Fecha",fechaMySQL);
                 return parametros;
             }
         };

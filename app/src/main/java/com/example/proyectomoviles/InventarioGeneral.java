@@ -109,9 +109,10 @@ public class InventarioGeneral extends AppCompatActivity implements DataChangeLi
         requestQueue.add(request);
     }
 
-    public void Agregar(View view)
+    public void AgregarAcc(View view)
     {
-        Intent siguiente = new Intent(this,MainActivity.class);
+        Intent siguiente = new Intent(this,RegistrarComp.class);
+        siguiente.putExtra("idAmbiente", idAmbiente);
         startActivity(siguiente);
     }
 }

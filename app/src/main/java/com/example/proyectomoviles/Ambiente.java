@@ -13,17 +13,18 @@ public class Ambiente extends AppCompatActivity {
     private String idAmbiente;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ambiente);
 
-        miTextView = findViewById(R.id.nomAmbiente);
 
         String descripcion = getIntent().getStringExtra("descripcion");
         idAmbiente = getIntent().getStringExtra("idAmbiente");
 
         String texto = descripcion;
+        miTextView = findViewById(R.id.nomAmbiente);
         miTextView.setText(texto);
 
     }

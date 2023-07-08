@@ -90,7 +90,7 @@ public class ListaAmbientes extends AppCompatActivity implements DataChangeListe
     //Mètodo boton Agregar
     public void Agregar(View view)
     {
-        Intent siguiente = new Intent(this,Ambiente.class);
+        Intent siguiente = new Intent(this,RegistrarAmbiente.class);
         startActivity(siguiente);
     }
 
